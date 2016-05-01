@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="sinai.idm.tpf.activity.PhotoDetails">
+
+    <item
+        android:id="@+id/action_delete"
+        app:showAsAction="always"
+        android:title="@string/action_delete"
+        android:orderInCategory="1"
+		android:icon="@drawable/ic_delete_white_36dp"/>
+    
+    <item
+        android:id="@+id/action_share"
+        app:showAsAction="always"
+        android:title="@string/action_share"
+        android:orderInCategory="1"
+		android:icon="@drawable/ic_share_white_36dp"/>
+    
+
+</menu>

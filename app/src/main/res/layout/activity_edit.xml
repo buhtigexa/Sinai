@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}"
+    android:background="@color/Black" >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/Black">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ivSnapshot"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+
+            android:scaleType="centerInside"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etTitle"
+            android:textSize="19sp"
+            android:textColorHint="@color/White"
+            android:textColor="@color/White"
+            android:hint="Titulo para la imagen ..."
+            android:layout_above="@+id/etDescription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="84dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etDescription"
+            android:textSize="19sp"
+            android:textColor="@color/White"
+            android:textColorHint="@color/White"
+            android:hint=" Escriba una descripción "
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/btnCancel"
+            android:layout_alignTop="@+id/btnSave"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/White"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:onClick="onCancel"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:id="@+id/btnSave"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="55dp"
+            android:textColor="@color/White"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:onClick="onSave"/>
+
+    </RelativeLayout>
+</RelativeLayout>

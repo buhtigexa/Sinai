@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:background="@android:color/holo_blue_light">
+    
+    <!-- the innner view - provides the white rectangle -->
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:background="@android:color/white">
+       
+        
+        
+        <!-- the icon view -->
+        <ImageView android:id="@+id/ivIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="1dp"
+            android:contentDescription="@string/icon_content_description"
+            android:scaleType="fitXY"
+            android:layout_alignParentLeft="true" />
+        
+       <!-- the container view for the title and description -->
+        <RelativeLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/ivIcon"
+            android:layout_centerVertical="true"
+            android:padding="1dp"
+            android:layout_margin="4dp">
+            
+            <!-- the title view -->
+            <TextView android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:textAppearance="@android:style/TextAppearance.Medium" />
+            
+            <!-- the description view -->
+            <TextView android:id="@+id/tvDescription"
+                android:layout_below="@id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="140"
+                android:maxLines="3"
+                android:textAppearance="@android:style/TextAppearance.Small" />
+        </RelativeLayout>   
+        
+    </RelativeLayout>
+    
+</RelativeLayout>
