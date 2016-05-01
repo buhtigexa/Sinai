@@ -39,13 +39,13 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/title_activity_simple_tabs"
-            android:parentActivityName=".activity.MainActivity">
+            android:label="@string/title_activity_simple_tabs">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.EditNewJob"
             android:label="@string/title_activity_edit"
@@ -62,13 +62,17 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".activity.Details"
             android:label="@string/title_activity_details"
-            android:theme="@style/MyMaterialTheme">
+            android:theme="@style/MyMaterialTheme"
+            android:parentActivityName=".activity.MainActivity">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".activity.MainActivity" />
+
         </activity>
 
         <activity
@@ -91,11 +95,6 @@
             android:name=".activity.NewJob"
             android:label="@string/title_activity_new_photo"
             android:theme="@style/MyMaterialTheme">
-            <!-- estas lineas no estaban
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-            estas lineas no estaban -->
-
             <meta-data
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
@@ -104,7 +103,10 @@
         <activity
             android:name=".activity.EditCurrentJob"
             android:label="@string/title_activity_edit_current_job"
-            android:theme="@style/MyMaterialTheme"></activity>
+            android:theme="@style/MyMaterialTheme"
+            android:parentActivityName=".activity.MainActivity">
+
+        </activity>
 
     </application>
 

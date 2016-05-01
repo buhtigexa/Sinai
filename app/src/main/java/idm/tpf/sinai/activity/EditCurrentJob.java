@@ -15,6 +15,7 @@ public class EditCurrentJob extends Edit {
 
     @Override
     protected void back() {
+
         finish();
     }
 
