@@ -100,14 +100,12 @@
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
         </activity>
+
         <activity
             android:name=".activity.EditCurrentJob"
             android:label="@string/title_activity_edit_current_job"
             android:theme="@style/MyMaterialTheme"></activity>
-        <activity
-            android:name=".activity.AbsDetail"
-            android:label="@string/title_activity_abs_detail"
-            android:theme="@style/MyMaterialTheme"></activity>
+
     </application>
 
 </manifest>
