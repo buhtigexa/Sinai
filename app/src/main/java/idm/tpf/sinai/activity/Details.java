@@ -26,19 +26,21 @@ public class Details extends AbsDetail {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-
         int id = item.getItemId();
-
         if (id == R.id.action_delete) {
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
             alertDialog.setTitle("Sinai - Eliminar foto.");
             alertDialog.setMessage("¿ Estás seguro de borrarla ?");
             alertDialog.setIcon(R.drawable.ic_delete_forever_white_36dp);
+
             alertDialog.setPositiveButton("SÍ", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
+
                     QueryHandler queryHandler = new QueryHandler(MainActivity.contentResolver);
                     queryHandler.startDelete(3, null, JobsProvider.CONTENT_URI, Jobs._ID + " = " + bundle.getLong(Jobs._ID), null);
-                    Toast.makeText(getApplicationContext(), "Eliminado !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "¡ Eliminado !", Toast.LENGTH_LONG).show();
+
+
                 }
             });
 
@@ -58,8 +60,7 @@ public class Details extends AbsDetail {
         if (id == android.R.id.home ){
 
         }
-
-        MainActivity.pageListener.onPageSelected(1);
+        //MainActivity.pageListener.onPageSelected(MainActivity.ID_JobsFragment);
         return super.onOptionsItemSelected(item);
     }
 
@@ -86,7 +87,7 @@ public class Details extends AbsDetail {
         Log.v(TAG," URI HOST : " +  uri.getHost());
         Log.v(TAG, "URI PORT " + uri.getPort());
         Log.v(TAG, "URI SCHEME : " + uri.getScheme());
-        Log.v(TAG, "URI  Last Path segment" +  uri.getLastPathSegment());
+        Log.v(TAG, "URI  Last Path segment" + uri.getLastPathSegment());
 
 
         i.setType("image/jpg");
@@ -94,7 +95,7 @@ public class Details extends AbsDetail {
         i.putExtra(Intent.EXTRA_SUBJECT, "Una foto de Sinai !");
         i.putExtra(Intent.EXTRA_TEXT, "Hey, te envío una foto que saqué usando Sinai ;) ");
         startActivity(Intent.createChooser(i, "Elegí una app para compartir la foto "));
-        finish();
+
 
     }
 

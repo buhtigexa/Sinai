@@ -14,12 +14,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import idm.tpf.sinai.R;
+
+import idm.tpf.sinai.activity.Details;
 import idm.tpf.sinai.adapter.JobsAdapter;
 import idm.tpf.sinai.providers.Jobs;
 import idm.tpf.sinai.providers.JobsProvider;
 
-
+import idm.tpf.sinai.R;
 /**
  * Created by Mar on 03/05/2016.
  */
@@ -76,9 +77,9 @@ public class JobsFragment extends ListFragment implements android.support.v4.app
         bundle.putDouble(Jobs.LATITUDE, cursor.getDouble(cursor.getColumnIndexOrThrow(Jobs.LATITUDE)));
         bundle.putDouble(Jobs.LONGITUDE, cursor.getDouble(cursor.getColumnIndexOrThrow(Jobs.LONGITUDE)));
         bundle.putLong(Jobs._ID,cursor.getLong(cursor.getColumnIndexOrThrow(Jobs._ID)));
-        //Intent photoActivity=new Intent(getActivity(), Details.class);
-        //photoActivity.putExtras(bundle);
-        //startActivity(photoActivity);
+        Intent photoActivity=new Intent(getActivity(), Details.class);
+        photoActivity.putExtras(bundle);
+        startActivity(photoActivity);
 
     }
 
@@ -103,21 +104,17 @@ public class JobsFragment extends ListFragment implements android.support.v4.app
     public void onResume() {
 
         super.onResume();
-
-
         if (isAdded() && getActivity()!=null) {
-            loader = getLoaderManager();
-            loader.initLoader(ID_Fragment, null, this);
-            //loader.restartLoader(ID_Fragment, null, this);
-
+            if (loader!=null){
+                loader.restartLoader(ID_Fragment, null, this);
+            }
         }
         adapter = new JobsAdapter(getActivity(), null, 0);
-        Cursor cursor;
-        if (adapter.getCursor()!=null){
-            cursor=adapter.getCursor();
-            cursor.moveToFirst();
-        }
-
+        //Cursor cursor;
+        //if (adapter.getCursor()!=null){
+        //    cursor=adapter.getCursor();
+        //    cursor.moveToFirst();
+        //}
         setListAdapter(adapter);
 
         Log.v(TAG, " ON RESUME");

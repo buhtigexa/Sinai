@@ -83,7 +83,7 @@ public abstract class Edit extends Activity {
 
         }
 
-        Log.v(TAG, " Time de localización : " + loc.getTime());
+        //Log.v(TAG, " Time de localización : " + loc.getTime());
 
         try
         {

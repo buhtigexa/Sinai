@@ -83,39 +83,19 @@ public class Add extends AppCompatActivity {
 
         ContentResolver resolver = getContentResolver();
         Cursor cursor = resolver.query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        //int nameIndex = cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME);
-        int nameIndex = cursor.getColumnIndex(MediaStore.MediaColumns.DATA);
+        int nameIndex=0;
+        if (cursor!=null) {
+            cursor.moveToFirst();
+            nameIndex= cursor.getColumnIndex(MediaStore.MediaColumns.DATA);
+        }
+
+
 
         if (nameIndex >= 0) {
             return cursor.getString(nameIndex);
         } else {
-            return null;
-        }
-    }
-/*
-    private void copyInputStreamToFile(InputStream in, String path) {
-
-        try {
-
-
-            OutputStream os = new FileOutputStream(path);
-
-            byte[] buffer = new byte[1024];
-            int bytesRead;
-            //read from is to buffer
-            while ((bytesRead = in.read(buffer)) != -1) {
-                os.write(buffer, 0, bytesRead);
-            }
-            in.close();
-
-            os.flush();
-            os.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            return new String();
         }
     }
 
-
-*/
 }

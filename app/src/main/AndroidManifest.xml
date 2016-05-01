@@ -26,10 +26,12 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:theme="@style/MyMaterialTheme">
         <provider
             android:name=".providers.JobsProvider"
             android:authorities="sinai.idm.tpf.providers" />
+
         <!-- android:name="com.google.android.geo.API_KEY" -->
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
@@ -89,6 +91,11 @@
             android:name=".activity.NewJob"
             android:label="@string/title_activity_new_photo"
             android:theme="@style/MyMaterialTheme">
+            <!-- estas lineas no estaban
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+            estas lineas no estaban -->
+
             <meta-data
                 android:name="com.google.android.gms.version"
                 android:value="@integer/google_play_services_version" />
