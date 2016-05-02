@@ -33,11 +33,14 @@ public class NewJob extends AbsDetail {
         if (id == android.R.id.home ){
         }
 
+
         Intent mainIntent=new Intent(this,MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        this.finish();
+//        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //| Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
         startActivity(mainIntent);
-        return super.onOptionsItemSelected(item);
+        finish();
+        return true;
     }
 
     @Override

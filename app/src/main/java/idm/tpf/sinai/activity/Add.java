@@ -75,6 +75,7 @@ public class Add extends AppCompatActivity {
             editIntent.putExtra("RECENT_IMAGE_FILE", photoPath);
             startActivity(editIntent);
         }
+        finish();
     }
 
 

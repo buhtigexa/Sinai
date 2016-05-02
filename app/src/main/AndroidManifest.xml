@@ -39,7 +39,10 @@
 
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/title_activity_simple_tabs">
+            android:label="@string/title_activity_simple_tabs"
+            android:launchMode= "singleTask">
+            <!-- La aplicación andaba perfecto. Si uso singleInstance tengo problemas cuando saco la foto desde la app. Para cargar las externas:OK -->
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -50,17 +53,29 @@
             android:name=".activity.EditNewJob"
             android:label="@string/title_activity_edit"
             android:theme="@style/MyMaterialTheme">
+            <!--android:parentActivityName=".activity.MainActivity"-->
+            <!-- esto de arriba no estaba y andaba bien -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="tpf.idm.sinai"
                     android:pathPrefix="/edit"
                     android:scheme="http" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.NewJob"
+            android:label="@string/title_activity_new_photo"
+            android:theme="@style/MyMaterialTheme">
+            <!--android:parentActivityName=".activity.MainActivity"-->
+            <!-- esto de arriba no estaba y andaba bien -->
+
+            <meta-data
+                android:name="com.google.android.gms.version"
+                android:value="@integer/google_play_services_version" />
         </activity>
 
         <activity
@@ -91,14 +106,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".activity.NewJob"
-            android:label="@string/title_activity_new_photo"
-            android:theme="@style/MyMaterialTheme">
-            <meta-data
-                android:name="com.google.android.gms.version"
-                android:value="@integer/google_play_services_version" />
-        </activity>
+
 
         <activity
             android:name=".activity.EditCurrentJob"

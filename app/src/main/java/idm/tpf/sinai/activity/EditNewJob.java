@@ -16,10 +16,14 @@ public class EditNewJob extends Edit {
     @Override
     protected void back() {
 
-        this.finish();
+
         Intent mainIntent=new Intent(this,MainActivity.class);
-        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); //| Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainIntent);
+
+        finish();
+
+        return;
 
     }
 }
