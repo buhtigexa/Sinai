@@ -61,6 +61,11 @@ public class Details extends AbsDetail {
 
         }
         //MainActivity.pageListener.onPageSelected(MainActivity.ID_JobsFragment);
+        //return super.onOptionsItemSelected(item);
+        //finish();
+        //Intent mainIntent=new Intent(this,MainActivity.class);
+        //mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //startActivity(mainIntent);
         return super.onOptionsItemSelected(item);
     }
 

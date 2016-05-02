@@ -10,13 +10,15 @@ public class EditNewJob extends Edit {
     public void onCancel(View view) {
 
         this.back();
-        this.finish();
+
     }
 
     @Override
     protected void back() {
 
+        this.finish();
         Intent mainIntent=new Intent(this,MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(mainIntent);
 
     }

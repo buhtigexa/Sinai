@@ -32,9 +32,10 @@ public class NewJob extends AbsDetail {
 
         if (id == android.R.id.home ){
         }
-        finish();
 
         Intent mainIntent=new Intent(this,MainActivity.class);
+        mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.finish();
         startActivity(mainIntent);
         return super.onOptionsItemSelected(item);
     }

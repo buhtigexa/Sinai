@@ -51,7 +51,7 @@ public class JobsProvider extends ContentProvider {
     public boolean onCreate() {
 
         jobsHelper = new JobsSqlHelper(getContext(), DATABASE_NAME, null, DATABASE_VERSION);
-        //this.reset();
+        this.reset();
         return true;
     }
 

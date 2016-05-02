@@ -10,6 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="idm.tpf.sinai.activity.AbsDetail"
+    android:background="@color/Black"
     tools:showIn="@layout/activity_abs_detail">
 
     <RelativeLayout
@@ -20,15 +21,15 @@
         android:background="@color/Black">
 
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:id="@+id/ivSnapshot"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
             android:background="@color/Black"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerInside"/>
 
         <TextView
             android:layout_width="wrap_content"

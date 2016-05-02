@@ -17,12 +17,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ivSnapshot"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
 
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -52,27 +54,31 @@
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:id="@+id/btnCancel"
-            android:layout_alignTop="@+id/btnSave"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:textColor="@color/White"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:onClick="onCancel"/>
+            android:onClick="onCancel"
+            android:layout_alignTop="@+id/btnSave"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="33dp"
+            android:layout_marginStart="33dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
             android:id="@+id/btnSave"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="55dp"
+            android:layout_marginBottom="56dp"
             android:textColor="@color/White"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:onClick="onSave"/>
+            android:onClick="onSave"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="39dp"
+            android:layout_marginEnd="39dp" />
 
     </RelativeLayout>
 </RelativeLayout>
