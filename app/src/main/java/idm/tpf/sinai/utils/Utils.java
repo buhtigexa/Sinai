@@ -105,6 +105,7 @@ public class Utils {
                 thumbnail = BitmapFactory.decodeByteArray(imageData, 0, length);
             }
 
+
         } catch(Exception e){
 
             e.printStackTrace();
@@ -112,7 +113,10 @@ public class Utils {
 
         }
 
-
+        if (thumbnail==null){
+            Log.v(TAG, " Thumbnail is null from : "  + path);
+            thumbnail=ThumbnailUtils.extractThumbnail(BitmapFactory.decodeFile(path), 30, 30);
+        }
         return thumbnail;
     }
 
