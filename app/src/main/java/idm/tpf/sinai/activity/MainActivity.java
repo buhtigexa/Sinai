@@ -73,29 +73,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.main_activity);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
-
         this.pageListener=new PageListener(this,viewPager);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
-
         lm = (LocationManager) getSystemService(LOCATION_SERVICE);
         locationListener = new ILocationListener(this);
-
-
         setUpDirectory();
         contentResolver = getContentResolver();
 
@@ -104,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-
         return true;
     }
 
@@ -156,35 +144,25 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActiviry-setUp", "Directorio: " + Environment.getExternalStorageDirectory().toString());
         home=Environment.getExternalStorageDirectory().toString()+"/sinai/";
         photos=Environment.getExternalStorageDirectory().toString()+"/sinai/photos/";
-        thumbnails= Environment.getExternalStorageDirectory().toString()+"/sinai/thumbnails/";
+        thumbnails= Environment.getExternalStorageDirectory().toString()+"/sinai/thumbnails/"; // este lo tengo que sacar despues
 
         Log.i("Main-setUp", "home : "  +  home);
         Log.i("Main-setUp", "photos : "  +  photos);
         Log.i("Main-setUp", "Thumbnails : "  +  thumbnails);
 
         SharedPreferences.Editor editor=pref.edit();
-
-
         if (pref.getString("dbName", null)==null){
-
             editor.putString("dbName",dbName);
             editor.commit();
-
         }
-
-
         if (pref.getString("home", null)==null){
-
             editor.putString("home",home);
             editor.commit();
-
         }
-
         if (pref.getString("photos",null)==null){
             editor.putString("photos", photos);
             editor.commit();
         }
-
         if (pref.getString("thumbnails",null)==null){
             editor.putString("thumbnails", thumbnails);
             editor.commit();
@@ -194,20 +172,15 @@ public class MainActivity extends AppCompatActivity {
         boolean dirCreateHome=true;
         boolean dirCreatePhotos=true;
         boolean dirCreateThumbnails=true;
-
-
         File dirHome = new File(home);
         if (!dirHome.exists()){
             dirCreateHome=dirHome.mkdir();
 
         }
-
         File dirPhotos = new File(photos);
         if (!dirPhotos.exists()){
             dirCreatePhotos=dirPhotos.mkdir();
-
         }
-
         File dirThumbnails = new File(thumbnails);
         if (!dirThumbnails.exists()){
             dirCreateThumbnails=dirThumbnails.mkdir();
@@ -216,8 +189,6 @@ public class MainActivity extends AppCompatActivity {
         Log.i("Main-setUp", "Pref Home  en: " + pref.getString("home", null));
         Log.i("Main-setUp", "Pref Photos en: " + pref.getString("photos", null));
         Log.i("Main-setUp", "Pref Thumbnails en: " + pref.getString("thumbnails", null));
-
-
         if (!success){
             Log.e("Main-SetUp", "Error en shared preferences");
         }
@@ -241,32 +212,20 @@ public class MainActivity extends AppCompatActivity {
         // Si la foto se capturó bien, editarla.
 
         if (requestCode == CAMERA_PIC_REQUEST && resultCode == RESULT_OK) {
-
             Intent editIntent = new Intent(this,EditCurrentJob.class);
             Uri outputFileUri = Uri.fromFile(recentImageFile);
             editIntent.putExtra("RECENT_IMAGE_FILE", outputFileUri.getPath());
-
             startActivity(editIntent); // editar foto.
-
-        }
-
+            }
        }
 
-
-
-
     public void getPhoto(View view){
-
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-
         recentImageFileName= sdf.format(new Date())+".jpg";
-
         recentImageFile=new File(photos+recentImageFileName);
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         Uri outputFileUri = Uri.fromFile(recentImageFile);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
         startActivityForResult(intent, CAMERA_PIC_REQUEST);
-
-
     }
 }

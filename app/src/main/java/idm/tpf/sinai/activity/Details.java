@@ -31,6 +31,8 @@ public class Details extends AbsDetail {
 
             case R.id.action_delete:
 
+                // acá tendría que abstraer un poco, y también puedo encapsular la operación que se haga según un SI/NO
+
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
                 alertDialog.setTitle("Sinai - Eliminar foto.");
                 alertDialog.setMessage("¿ Estás seguro de borrarla ?");

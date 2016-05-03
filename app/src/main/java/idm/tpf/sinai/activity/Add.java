@@ -34,54 +34,7 @@ public class Add extends AppCompatActivity {
         sinaiFileContext.doAction();
         finish();
 
-        //boolean isSinaiFile = Utils.isSinaiFile(photoPath);
-        //Exif exif=new ExifComments(photoPath);
-        //Bundle bundle=new Bundle();
 
-
-
-/*
-        if (isSinaiFile) {
-
-            // si es arhivo de Sinai, lo voy a poder ver en Details.Activity ( sin eliminar ni compartir, sino Sólo Agregar ): Si agrega, lo copio al directorio
-            // propio-
-            Double lat=exif.getLatitude();
-            Double lng=exif.getLongitude();
-            String date=exif.getDate();
-            String title=exif.getTitle();
-            String comment=exif.getComment();
-
-            bundle.putDouble(Jobs.LATITUDE,lat);
-            bundle.putDouble(Jobs.LONGITUDE,lng);
-            bundle.putString(Jobs.DATE, date);
-            bundle.putString(Jobs.TITLE, title);
-            bundle.putString(Jobs.COMMENT, comment);
-            bundle.putString(Jobs.PATH,photoPath);
-
-            Intent newJob = new Intent(this, NewJob.class);
-            newJob.putExtra("RECENT_IMAGE_FILE", photoPath);
-            newJob.putExtras(bundle);
-
-            startActivity(newJob);
-
-        }
-        else {
-            // Si no es archivo de Sina, voy a usar Edit . Si agrega, lo copio al directorio propio.
-
-            Double lat=exif.getLatitude();
-            Double lng=exif.getLongitude();
-            String date=exif.getDate();
-            String title=exif.getTitle();
-            String comment=exif.getComment();
-
-            Intent editIntent = new Intent(this, EditNewJob.class);
-            editIntent.putExtra("RECENT_IMAGE_FILE", photoPath);
-            startActivity(editIntent);
-        }
-
-        finish();
-
-        */
     }
 
 

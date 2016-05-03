@@ -25,8 +25,7 @@ public class NewJob extends AbsDetail {
         switch (id) {
             case R.id.action_insert:
 
-                // Acá podría incorporar la foto en el content provider. Con ese path, podría copiarlo al directorio de la app.
-
+               // acá tendría que abstraer un poco, y también puedo encapsular la operación que se haga según un SI/NO
 
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
