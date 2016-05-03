@@ -1,18 +1,13 @@
 package idm.tpf.sinai.activity;
 
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 
-import idm.tpf.sinai.providers.Jobs;
-import idm.tpf.sinai.utils.Exif;
-import idm.tpf.sinai.utils.ExifComments;
-import idm.tpf.sinai.utils.Utils;
-
+import idm.tpf.sinai.strategies.SinaiFileContext;
 
 public class Add extends AppCompatActivity {
 
@@ -32,12 +27,20 @@ public class Add extends AppCompatActivity {
 
         Uri uri = getIntent().getData();
         String photoPath = getNameFromUri(uri);
-        boolean isSinaiFile = Utils.isSinaiFile(photoPath);
         TAG = getClass().getCanonicalName();
-        Exif exif=new ExifComments(photoPath);
-        Bundle bundle=new Bundle();
 
 
+        SinaiFileContext sinaiFileContext=new SinaiFileContext(this,photoPath);
+        sinaiFileContext.doAction();
+        finish();
+
+        //boolean isSinaiFile = Utils.isSinaiFile(photoPath);
+        //Exif exif=new ExifComments(photoPath);
+        //Bundle bundle=new Bundle();
+
+
+
+/*
         if (isSinaiFile) {
 
             // si es arhivo de Sinai, lo voy a poder ver en Details.Activity ( sin eliminar ni compartir, sino Sólo Agregar ): Si agrega, lo copio al directorio
@@ -75,7 +78,10 @@ public class Add extends AppCompatActivity {
             editIntent.putExtra("RECENT_IMAGE_FILE", photoPath);
             startActivity(editIntent);
         }
+
         finish();
+
+        */
     }
 
 

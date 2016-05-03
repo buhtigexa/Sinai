@@ -26,7 +26,7 @@ public class JobsProvider extends ContentProvider {
     public static final Uri CONTENT_URI = Uri.parse(uri);
 
 
-    //private ClientesSqliteHelper clidbh;
+
     public static DBAdapter db;
 
     static final String DATABASE_NAME = "JOBS_DATABASE";
@@ -34,7 +34,7 @@ public class JobsProvider extends ContentProvider {
     static final int DATABASE_VERSION = 1;
 
     protected JobsSqlHelper jobsHelper;
-    //Inicializamos el UriMatcher
+
 
     static {
 

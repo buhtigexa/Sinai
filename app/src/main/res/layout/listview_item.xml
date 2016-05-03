@@ -14,7 +14,7 @@
        
         
         
-        <!-- the icon view -->
+
         <ImageView android:id="@+id/ivIcon"
             android:layout_width="45dp"
             android:layout_height="45dp"
@@ -24,7 +24,7 @@
             android:scaleType="fitXY"
             android:layout_alignParentLeft="true" />
         
-       <!-- the container view for the title and description -->
+
         <RelativeLayout android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/ivIcon"
@@ -32,7 +32,7 @@
             android:padding="1dp"
             android:layout_margin="3dp">
             
-            <!-- the title view -->
+
             <TextView android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
                 android:maxLines="1"
                 android:textAppearance="@android:style/TextAppearance.Medium" />
             
-            <!-- the description view -->
+
             <TextView android:id="@+id/tvDescription"
                 android:layout_below="@id/tvTitle"
                 android:layout_width="wrap_content"

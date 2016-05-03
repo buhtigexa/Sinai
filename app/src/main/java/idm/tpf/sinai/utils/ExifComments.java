@@ -31,10 +31,13 @@ public class ExifComments extends  Exif {
     protected String latitude;
     protected String longitude;
     protected String userComment;
+    public String path;
 
     public ExifComments(String path) {
 
         super(path);
+        this.path=path;
+
         TAG = getClass().getCanonicalName();
         userComment = exifInterface.getAttribute("UserComment");
 

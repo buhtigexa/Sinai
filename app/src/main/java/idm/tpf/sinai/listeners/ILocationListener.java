@@ -30,31 +30,24 @@ public class ILocationListener implements LocationListener{
 
         if (location!=null){
             MainActivity.currentLocation=location;
-            //Log.v(TAG, location.getProvider() + "----------------------------");
-            //Log.v(TAG, "Latitud :" +  location.getLatitude()  );
-            //Log.v(TAG, "Longitud :" +  location.getLongitude() );
 
         }
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-        // TODO Auto-generated method stub
-        //Toast.makeText(mCtx, provider + "disabled", Toast.LENGTH_SHORT).show();
-        //Log.v(TAG, "DISABLED : " +  provider + "disabled" );
+
     }
 
     @Override
     public void onProviderEnabled(String provider) {
-        // TODO Auto-generated method stub
-        //Toast.makeText(mCtx,provider + "Enabled",Toast.LENGTH_SHORT).show();
-        //Log.v(TAG, "ENABLED : " +  provider + "Enabled" );
+
 
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        // TODO Auto-generated method stub
+
 
     }
 }

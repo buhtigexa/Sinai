@@ -44,12 +44,8 @@ public class MainActivity extends AppCompatActivity {
     public static String thumbnails = "thumbnails/";
     public static String recentImageFileName;
     public static File recentImageFile;
-    //public static File recentThumbnailImageFile;
-    //public static File recentThumbnailName;
-    //public static List<ListViewItem> mItems;        // ListView items list
     public static double latitude;
     public static double longitude;
-    //public static File dirPhotos;
 
 
     public static final int CAMERA_PIC_REQUEST = 1337;
@@ -91,10 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
         this.pageListener=new PageListener(this,viewPager);
 
-        // esta linea no estaba y no se necesitaba.
-
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -112,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        // return super.onCreateOptionsMenu(menu);
+
         return true;
     }
 
@@ -139,9 +131,6 @@ public class MainActivity extends AppCompatActivity {
         }
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTimeGps, minDistGps, locationListener);
         lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, minTimeNet, minDistNet, locationListener);
-
-
-        // create data base helper...
 
 
     }

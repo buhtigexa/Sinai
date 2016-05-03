@@ -62,25 +62,24 @@ public class DBAdapter {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.w(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion + ", which will destroy all old data");
             db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
             onCreate(db);
         }
     }
 
-    //---opens the database---
+
     public DBAdapter open() throws SQLException
     {
         db = DBHelper.getWritableDatabase();
 
         return this;
     }
-    //---closes the database---
+
     public void close()
     {
         DBHelper.close();
     }
-    //---insert a contact into the database---
+
     public long insertRow(String date,Double lat,Double lng, String title, String comment, String path){
 
         ContentValues initialValues = new ContentValues();
@@ -94,12 +93,12 @@ public class DBAdapter {
 
     }
 
-    //---deletes a particular contact---
+
     public boolean deleteRow(long rowId){
 
         return db.delete(DATABASE_TABLE, KEY_ROWID + " = " + rowId, null) > 0;
     }
-    //---retrieves all the contacts---
+
     public Cursor getAllRows() {
         return db.query(DATABASE_TABLE, new String[] {KEY_ROWID, DATE,LONGITUDE,LATITUDE,TITLE,COMMENT,PATH}, null, null, null, null, null);
     }
@@ -115,7 +114,7 @@ public class DBAdapter {
         return mCursor;
     }
 
-    //---updates a contact---
+
     public boolean updateRow(long rowId,String date,Double lat,Double lng, String title, String comment, String path){
 
         ContentValues initialValues = new ContentValues();

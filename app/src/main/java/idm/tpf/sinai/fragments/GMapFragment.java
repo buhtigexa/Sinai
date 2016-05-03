@@ -48,12 +48,8 @@ public class    GMapFragment extends Fragment {
 
         @Override
         protected void onQueryComplete(int token, Object cookie, Cursor cursor) {
-
-            //Toast.makeText(getActivity()," Operacion Completada... escribiendo Marcadores",Toast.LENGTH_SHORT).show();
-
             worker=new GMapsAsyncUI(map,getActivity());
             worker.execute(cursor);
-
         }
 
 
@@ -64,47 +60,17 @@ public class    GMapFragment extends Fragment {
 
 
         TAG=getClass().getCanonicalName();
-
-        //queryHandler=new MyQueryHandler(Main.contentResolver);
-
         View v = inflater.inflate(R.layout.fragment_map, container, false);
-        // Gets the MapView from the XML layout and creates it
         mapView = (MapView) v.findViewById(R.id.mapview);
         mapView.onCreate(savedInstanceState);
-
-        // pido por los elementos a mostrar.
-
-
-
-        // Gets to GoogleMap from the MapView and does initialization stuff
         map = mapView.getMap();
-
-       // el fragmento tiene que ser visible,...
-       //queryHandler.startQuery(gmapRequest, null, JobsProvider.CONTENT_URI, projection, null, null, null);
-
-
-
         map.getUiSettings().setMyLocationButtonEnabled(true);
-
-
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return null;
         }
-
-
-
         map.setMyLocationEnabled(true);
         map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-
-        // Needs to call MapsInitializer before doing any CameraUpdateFactory calls
         try {
             MapsInitializer.initialize(this.getActivity());
         } catch (Exception e) {
@@ -116,9 +82,6 @@ public class    GMapFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // TODO Auto-generated method stub
-        //inflater.inflate(R.menu.home,menu);
-        //super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.gmaps_menu,menu);
 
     }
@@ -133,7 +96,6 @@ public class    GMapFragment extends Fragment {
                 // el fragmento tiene que ser visible,...
                 if (map != null) {
                     queryHandler = new MyQueryHandler(MainActivity.contentResolver);
-                    //Toast.makeText(getActivity()," HANDLER GMAPS UI ASYNC CREADO",Toast.LENGTH_SHORT).show();
                     queryHandler.startQuery(gmapRequest, null, JobsProvider.CONTENT_URI, projection, null, null, null);
                 }
             }

@@ -8,7 +8,6 @@ import android.Manifest;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -23,7 +22,6 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,41 +53,9 @@ public class Utils {
 
     }
 
-    static public ArrayList<String> getListFiles(String path) {
 
 
-        ArrayList<String> list = new ArrayList<String>();
-        Log.d(TAG, "Path: " + path);
-        File f = new File(path);
-        File file[] = f.listFiles();
-        Log.d(TAG, "Size: " + file.length);
-        for (int i = 0; i < file.length; i++) {
-            list.add(file[i].getAbsolutePath());
-            Log.d(TAG, "FileName:" + file[i].getName() + " Size: " + file[i].length());
-        }
-        Log.d("", "");
-        return list;
-    }
 
-    static public void listFiles(ArrayList<String> files) {
-
-        for (String s : files) {
-            Log.v("listFiles", s);
-
-        }
-    }
-
-    // esta es otra forma de obtener un Thumbnail....
-
-
-    static public Bitmap getThumbnail_(Context ctx,String path){
-
-        //Uri uri= Uri.fromFile(new File(path));
-        //Bitmap bitmap = MediaStore.Images.Thumbnails.getThumbnail(ctx.getContentResolver(), uri,MediaStore.Images.Thumbnails.MINI_KIND,
-          //
-          //                                                    (BitmapFactory.Options) null );
-        return null;
-    }
 
     static public Bitmap getThumbnail(String path) {
 
@@ -180,10 +146,10 @@ public class Utils {
         } else {
 
             if (gps_loc != null) {
-                Toast.makeText(mCtx, "PROVISTA POR GPS", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mCtx, "PROVISTA POR GPS", Toast.LENGTH_SHORT).show();
                 finalLoc = gps_loc;
             } else if (net_loc != null) {
-                Toast.makeText(mCtx, "PROVISTA POR WIFI", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mCtx, "PROVISTA POR WIFI", Toast.LENGTH_SHORT).show();
                 finalLoc = net_loc;
             }
         }
@@ -194,7 +160,7 @@ public class Utils {
     }
 
 
-
+    /*
     static public void DisplayRow(Cursor c){
     // solo quiero mostrar una fila de una tabla de la base de datos.
         Log.v( " DB :"  ,c.getString(0) + "  "  +  c.getString(1) + "  " + c.getString(2) + "  " +c.getString(3) + "  " +  c.getString(4) +
@@ -202,6 +168,7 @@ public class Utils {
 
     }
 
+*/
 
 
     public static boolean isSinaiFile(String path) {

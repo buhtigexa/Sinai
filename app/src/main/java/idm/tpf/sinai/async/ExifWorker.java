@@ -38,17 +38,6 @@ public class ExifWorker implements  Runnable{
         exif.setComment(comment);
         exif.setLatitude(latitude);
         exif.setLongitude(longitude);
-
-        /*String a=exif.getDate();
-        String b=exif.getTitle();
-        String c=exif.getComment();
-        Double d=exif.getLatitude();
-        Double e=exif.getLongitude();
-
-        Log.v(TAG, " " + a  + " " + b + " " + c + " " + d.toString() + "  " + e.toString() + "  " + path);
-
-        //Toast.makeText(this.mCxt, " ASYNC IO RUNNING !!!:   " + a  + " " + b + " " + c + " " + d.toString() + "  " + e.toString() + "  " + path, Toast.LENGTH_LONG).show();
-*/
         exif.close();
 
 

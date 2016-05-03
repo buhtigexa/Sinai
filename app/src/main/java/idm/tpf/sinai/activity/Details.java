@@ -21,51 +21,49 @@ import idm.tpf.sinai.providers.JobsProvider;
 
 public class Details extends AbsDetail {
 
-
+    protected QueryHandler queryHandler;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.action_delete) {
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-            alertDialog.setTitle("Sinai - Eliminar foto.");
-            alertDialog.setMessage("¿ Estás seguro de borrarla ?");
-            alertDialog.setIcon(R.drawable.ic_delete_forever_white_36dp);
+        switch (id) {
 
-            alertDialog.setPositiveButton("SÍ", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
+            case R.id.action_delete:
 
-                    QueryHandler queryHandler = new QueryHandler(MainActivity.contentResolver);
-                    queryHandler.startDelete(3, null, JobsProvider.CONTENT_URI, Jobs._ID + " = " + bundle.getLong(Jobs._ID), null);
-                    Toast.makeText(getApplicationContext(), "¡ Eliminado !", Toast.LENGTH_LONG).show();
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+                alertDialog.setTitle("Sinai - Eliminar foto.");
+                alertDialog.setMessage("¿ Estás seguro de borrarla ?");
+                alertDialog.setIcon(R.drawable.ic_delete_forever_white_36dp);
+
+                alertDialog.setPositiveButton("SÍ", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        queryHandler = new QueryHandler(MainActivity.contentResolver);
+                        queryHandler.startDelete(3, null, JobsProvider.CONTENT_URI, Jobs._ID + " = " + bundle.getLong(Jobs._ID), null);
+                        Toast.makeText(getApplicationContext(), "¡ Eliminado !", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                alertDialog.show();
+                break;
 
 
-                }
-            });
+            case R.id.action_share:
+                send();
+                break;
+            case android.R.id.home:
+                break;
 
-            alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                    dialog.cancel();
-                }
-            });
-
-            alertDialog.show();
+            default:
+                break;
         }
 
-        if (id == R.id.action_share) {
-            send();
-        }
-
-        if (id == android.R.id.home ){
-
-        }
-        //MainActivity.pageListener.onPageSelected(MainActivity.ID_JobsFragment);
-        //return super.onOptionsItemSelected(item);
-        //finish();
-        //Intent mainIntent=new Intent(this,MainActivity.class);
-        //mainIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        //startActivity(mainIntent);
         return super.onOptionsItemSelected(item);
     }
 

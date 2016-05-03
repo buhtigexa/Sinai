@@ -41,8 +41,6 @@ public abstract class AbsDetail extends AppCompatActivity {
         TextView tvDescription = (TextView) findViewById(R.id.tvDescription);
         ImageView imageView = (ImageView) findViewById(R.id.ivSnapshot);
 
-        // esto anda muy bien pero me carga la imagen rotada.
-        //imageView.setImageBitmap(BitmapFactory.decodeFile(bundle.getString(Jobs.PATH, "")));
         imageView.setImageBitmap(Utils.getImageCorrectly(bundle.getString(Jobs.PATH, "")));
 
         tvDescription.setText(bundle.getString(Jobs.COMMENT, ""));
@@ -59,12 +57,12 @@ public abstract class AbsDetail extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         setMenu(menu);
-        actionBar.setTitle(bundle.getString(Jobs.TITLE, " Sin título"));
+        actionBar.setTitle(bundle.getString(Jobs.TITLE, " Sin título "));
         actionBar.setSubtitle(bundle.getString(Jobs.DATE, ""));
         return true;
     }
 
     protected abstract void setMenu(Menu menu);
-    //getMenuInflater().inflate(mMenu, menu);
+
 
 }

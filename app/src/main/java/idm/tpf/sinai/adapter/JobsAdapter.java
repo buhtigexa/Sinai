@@ -25,7 +25,7 @@ import idm.tpf.sinai.utils.Utils;
  */
 public class JobsAdapter extends CursorAdapter {
 
-    public JobsAsyncUI worker;
+    //public JobsAsyncUI worker;
     public static String TAG;
     public JobsAdapter(Context context, Cursor cursor, int flags) {
         super(context, cursor, 0);

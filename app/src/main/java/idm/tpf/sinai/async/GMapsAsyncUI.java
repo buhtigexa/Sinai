@@ -30,8 +30,6 @@ public class GMapsAsyncUI extends AsyncTask<Cursor,MarkerOptions,GoogleMap> {
 
     @Override
     protected void onPreExecute() {
-        //super.onPreExecute();
-        //Toast.makeText(mCtx," Limpiando el mapa . ",Toast.LENGTH_SHORT).show();
         this.mMap.clear();
 
 
@@ -39,7 +37,6 @@ public class GMapsAsyncUI extends AsyncTask<Cursor,MarkerOptions,GoogleMap> {
 
     @Override
     protected void onProgressUpdate(MarkerOptions... values) {
-        //super.onProgressUpdate(values);
         this.mMap.addMarker(values[0]);
     }
 
@@ -60,11 +57,9 @@ public class GMapsAsyncUI extends AsyncTask<Cursor,MarkerOptions,GoogleMap> {
                         markOps.position(new LatLng(lat /*+ ThreadLocalRandom.current().nextInt(0, 10 + 1)*/, lng /*+ ThreadLocalRandom.current().nextInt(10, 20 + 1*/));
                         markOps.title(title);
                         markOps.snippet(comment);
-                        //this.mMap.addMarker(markOps);
                         publishProgress(markOps);
                     }
                     Log.v(TAG, " Añadiendo Marker !!!");
-                    //Toast.makeText(this.mCtx, " Añadiendo Marcador!!", Toast.LENGTH_SHORT).show();
                 }
                 while (cursor.moveToNext());
             }

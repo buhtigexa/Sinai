@@ -83,22 +83,6 @@ public class JobsFragment extends ListFragment implements android.support.v4.app
 
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        Log.v(TAG, " ON ATTACH ");
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-
-
-        Log.v(TAG, " ON DETTACH ");
-
-    }
 
     @Override
     public void onResume() {
@@ -110,23 +94,13 @@ public class JobsFragment extends ListFragment implements android.support.v4.app
             }
         }
         adapter = new JobsAdapter(getActivity(), null, 0);
-        //Cursor cursor;
-        //if (adapter.getCursor()!=null){
-        //    cursor=adapter.getCursor();
-        //    cursor.moveToFirst();
-        //}
         setListAdapter(adapter);
-
         Log.v(TAG, " ON RESUME");
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
-
-        Log.v(TAG, " ON CREATE VIEW");
         return super.onCreateView(inflater, container, savedInstanceState);
 
 
@@ -137,10 +111,6 @@ public class JobsFragment extends ListFragment implements android.support.v4.app
     public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle args) {
 
         cursor=new android.support.v4.content.CursorLoader(getActivity(), JobsProvider.CONTENT_URI,null,null,null,null);
-
-
-        Log.v(TAG, "ON CREATE LOADER  ");
-
         return cursor;
 
     }
